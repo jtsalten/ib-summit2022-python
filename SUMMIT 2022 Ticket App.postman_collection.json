@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "24f6ace2-cbcf-45e1-ace3-f1125c877dd5",
+		"name": "SUMMIT 2022 Ticket App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7882382"
+	},
+	"item": [
+		{
+			"name": "Info Evento",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52775/summit/evento/info/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"evento",
+						"info",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generates QR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"link\":\"www.intersystems.com\",\"logo\":false}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:52775/summit/qr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"qr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Simple PDF",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52775/summit/simplepdf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"simplepdf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Imagen Lema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52775/summit/dalle2/mouse catching a cat",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"dalle2",
+						"mouse catching a cat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ticket Evento Final",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"link\":\"www.intersystems.com\",\"logo\":false}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:52775/summit/evento/ticket/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"evento",
+						"ticket",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Regenera Imagen Lema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52775/summit/evento/generaimg/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52775",
+					"path": [
+						"summit",
+						"evento",
+						"generaimg",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

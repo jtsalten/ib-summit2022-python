@@ -101,6 +101,7 @@ ClassMethod Reset()
     do ##class(OPNex.Py2022.Evento).%KillExtent()
 }
 
+/// Crea un Evento de test
 ClassMethod GeneraTest()
 {
     #dim tEvento as OPNex.Py2022.Evento = ##class(OPNex.Py2022.Evento).%New()

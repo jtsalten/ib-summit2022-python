@@ -25,21 +25,6 @@ Property Descripcion As %String(MAXLEN = "");
 /// Ciudad y pais del evento
 Property Ubicacion As OPNex.Py2022.Direccion;
 
-Method Info() As %String [ Language = python ]
-{
-    import json
-    doc = {}
-    doc["Site"]=self.Site
-    doc["Empresa"]=self.Empresa
-    doc["Lema"]=self.Lema
-    doc["ImgLema"]=self.ImgLema
-    doc["ImgLogo"]=self.ImgLogo
-    doc["Ciudad"]=self.Ubicacion.Ciudad
-    doc["Pais"]=self.Ubicacion.Pais
-
-    return json.dumps(doc)
-}
-
 /// Obtiene una nueva imagen de Dall-e2 para el lema del evento
 Method AsociaImgLema() As %String [ Language = python ]
 {

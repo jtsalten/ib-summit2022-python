@@ -25,9 +25,9 @@ XData UrlMap [ XMLNamespace = "http://www.intersystems.com/urlmap" ]
 /// Devuelve información propiedades del evento con ID = pID
 ClassMethod GetInfo(pID As %String) As %Status
 {
-    //write "TO DO - Info del evento con pID = "_pID
+    write "TO DO - Info del evento con pID = "_pID
 
-    
+    /*
     #dim tEvento as OPNex.Py2022.Evento = ##class(OPNex.Py2022.Evento).%OpenId(pID)
 
     if $IsObject(tEvento)
@@ -38,7 +38,7 @@ ClassMethod GetInfo(pID As %String) As %Status
     {
         write "El evento indicado no existe"
     }
-    
+    */
     return $$$OK
 }
 
@@ -68,6 +68,7 @@ ClassMethod GeneratesQR() As %Status
         
         do tFile.LinkToFile(..#BASEIMGDIR_"/QR-test.jpg")
         //do tFile.LinkToFile(##class(OPNex.Py2022.Tools).pyQR(tJSON.link, tLogo, tTempDir))
+        // Si queremos que el fichero sea eliminado al cerrar el %Stream.FileBinary
         //set tFile.RemoveOnClose = 1
         do tFile.OutputToDevice()
     }
@@ -89,6 +90,7 @@ ClassMethod GetSimplePDF(pImg As %String = "img-default.jpg", pText As %String =
 
     do tFile.LinkToFile(..#BASEIMGDIR_"/SimplePDF-test.pdf")
     //do tFile.LinkToFile(##class(OPNex.Py2022.Tools).pySimplePDF(pImg,pText))
+    // Si queremos que el fichero sea eliminado al cerrar el %Stream.FileBinary
     //set tFile.RemoveOnClose = 1
     do tFile.OutputToDevice()
 
@@ -165,7 +167,7 @@ ClassMethod pyPDF(pLema As %String, pImgLema As %String, pImgQR As %String, pImg
     from reportlab.lib.pagesizes import letter, A6, A4, A5
     #A6: w 297.6 / h 419.5  -- A5: w 419.5 / h 595.2  -- A4: w 595.2 / h 841.8
 
-    filePath = iris.cls('OPNex.Py2022.RestDispatch')._GetParameter('BASEIMGDIR')+"/test.pdf"
+    filePath = iris.cls(__name__)._GetParameter('BASEIMGDIR')+"/test.pdf"
     pagesize = A6
     Pwidth, Pheight = pagesize     #print('width: ',Pwidth,'  height: ',Pheight)
 
@@ -213,6 +215,8 @@ ClassMethod pyPDF(pLema As %String, pImgLema As %String, pImgQR As %String, pImg
     x0, y0 = 10, 0
     wImgAjustada, hImgAjustada = wlogo*rAjusteLogo, altBloqInf
 
+    print("wlogo: ",wlogo,"hlogo: ",hlogo,"rAjusteLogo: ",rAjusteLogo)
+    print("wajustada: ",wImgAjustada,"hajus: ",hImgAjustada)
     w3, h3 = c.drawImage(im_logo,x0,y0,wImgAjustada,hImgAjustada)
   
     # -- QR
