@@ -3,21 +3,17 @@ Class OPNex.Py2022.Tools Extends %Library.RegisteredObject
 
 Parameter BASEIMGDIR = "/_DEMOS/ib-summit2022-python/imagenes";
 
-ClassMethod InfoEvento(pID As %String) As %String [ Language = python ]
-{
-    import iris
-
-    evento = iris.cls('OPNex.Py2022.Evento')._OpenId(pID)
-
-    return evento.Info()
-}
-
 /// Genera código QR con pData indicado - almacena el QR en un fichero y retorna el path 
 ClassMethod pyQR(pData As %String = "", pLogo As %String = "", pTargetDir As %String = "") As %String [ Language = python ]
 {
+    imgFilePath = "/_DEMOS/ib-summit2022-python/imagenes/QR-test.jpg"
+
+    # Generación QR
+    '''
     import qrcode
     from qrcode.image.styledpil import StyledPilImage
-    import random as rnd    
+    import random as rnd
+    # Genera un archivo de nombre aleatorio con prefijo ibs2022-qr-    
     imgFilePath = pTargetDir+"/"+"ibs2022-qr-"+str(rnd.randint(999,99999))+'.jpg'
 
     qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H, 
@@ -29,6 +25,7 @@ ClassMethod pyQR(pData As %String = "", pLogo As %String = "", pTargetDir As %St
     img = qr.make_image(embeded_image_path=pLogo)
 
     img.save(imgFilePath)
+    '''
 
     return imgFilePath
 }
@@ -36,6 +33,10 @@ ClassMethod pyQR(pData As %String = "", pLogo As %String = "", pTargetDir As %St
 /// Simple PDF using Python reportlab module
 ClassMethod pySimplePDF(pImgFile As %String = "img-default.jpg", pTexto As %String = "Texto de Prueba") As %String [ Language = python ]
 {
+    pdffile = "/_DEMOS/ib-summit2022-python/imagenes/SimplePDF-test.pdf"
+
+    #Generación PDF
+    '''
     import iris
     from reportlab.pdfgen import canvas
     from reportlab.lib.pagesizes import letter, A6, A4, A5
@@ -55,7 +56,8 @@ ClassMethod pySimplePDF(pImgFile As %String = "img-default.jpg", pTexto As %Stri
     c.drawString(250,height - 400, text=pTexto)
 
     c.save()
-
+    '''
+    
     return pdfFile
 }
 

@@ -28,16 +28,16 @@ Property Ubicacion As OPNex.Py2022.Direccion;
 Method Info() As %String [ Language = python ]
 {
     import json
-    d = {}
-    d["Site"]=self.Site
-    d["Empresa"]=self.Empresa
-    d["Lema"]=self.Lema
-    d["ImgLema"]=self.ImgLema
-    d["ImgLogo"]=self.ImgLogo
-    d["Ciudad"]=self.Ubicacion.Ciudad
-    d["Pais"]=self.Ubicacion.Pais
+    doc = {}
+    doc["Site"]=self.Site
+    doc["Empresa"]=self.Empresa
+    doc["Lema"]=self.Lema
+    doc["ImgLema"]=self.ImgLema
+    doc["ImgLogo"]=self.ImgLogo
+    doc["Ciudad"]=self.Ubicacion.Ciudad
+    doc["Pais"]=self.Ubicacion.Pais
 
-    return json.dumps(d)
+    return json.dumps(doc)
 }
 
 /// Obtiene una nueva imagen de Dall-e2 para el lema del evento
