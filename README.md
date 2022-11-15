@@ -2,12 +2,11 @@
 
 En esta demo pretendemos construir la lógica de servidor para una pequeña aplicación que generaría tickets o folletos  para eventos, con un formato básico determinado:
 
-
-
+![App Design](./imagenes/App-Design.png)
 
 Nos limitaremos a la lógica de backend, implementando las clases y métodos necesarios, así como los servicios REST para hacer uso de las distintas funcionalidades. El front-end podría basarse en Angular, React, Django,... o cualquier otro framework de desarrollo de UI. Desde este framework simplemente se llamaría a los servicios REST expuestos.
 
-## Install
+## Preparación
 
 ### Paquetes de Pypi.org para QR, PDF y Dall-E2
 
@@ -30,6 +29,10 @@ En esta aplicación web, la clase dispatcher de servicios REST deberá ser: ``OP
 ### Clases de IRIS
 
 En el namespace de IRIS que hayamos elegido, cargar y compilar las clases incluidas en ``src/OPNex/Py2022``
+
+### Cliente REST
+
+Para ejecutar y probar los servicios REST se puede utilizar cualquier cliente REST. Si utilizas el PostMan como yo, puedes importar la colección de rutas a los servicios que incluyo en el fichero: ``SUMMIT 2022 Ticket App.postman_collection.json``.
 
 ## Demo
 
